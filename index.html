@@ -159,7 +159,7 @@
 <span class="material-symbols-outlined text-4xl mb-6">scale</span>
 <h3 class="font-bold text-[18px] text-[#FFFFFF] mb-2">Mide tu patrimonio</h3>
 <p class="text-[14px] text-[#888888] flex-grow mb-6">Suma activos y pasivos. Ve de un vistazo cuánto vales realmente.</p>
-<a class="text-[#00C853] text-[14px] font-bold hover:text-primary transition-colors" href="#">Calcular →</a>
+<a class="text-[#00C853] text-[14px] font-bold hover:text-primary transition-colors" href="#" onclick="event.preventDefault(); openNetWorthCalculator()">Calcular →</a>
 </div>
 <div class="edc-card flex flex-col h-full p-10">
 <span class="material-symbols-outlined text-4xl mb-6">pie_chart</span>
@@ -543,6 +543,298 @@
 
   ['ic-capital', 'ic-mensual', 'ic-rentabilidad', 'ic-anios'].forEach(function (id) {
     document.getElementById(id).addEventListener('input', calcIC);
+  });
+}());
+</script>
+
+<!-- ===== Modal: Calculadora de Patrimonio Neto ===== -->
+<div id="modal-pn" role="dialog" aria-modal="true" aria-labelledby="modal-pn-title"
+     class="fixed inset-0 z-[200] items-center justify-center p-4"
+     style="display:none; background:rgba(0,0,0,0.88); backdrop-filter:blur(4px)">
+  <div class="w-full max-w-2xl bg-[#111111] border border-[#2A2A2A] rounded-2xl overflow-y-auto" style="max-height:90vh">
+
+    <div class="flex items-center justify-between px-6 py-5 border-b border-[#2A2A2A]">
+      <div class="flex items-center gap-3">
+        <span class="material-symbols-outlined" style="color:#00C853">scale</span>
+        <h2 id="modal-pn-title" class="font-bold text-white" style="font-size:18px">Patrimonio neto</h2>
+      </div>
+      <button onclick="closeModal('modal-pn')" aria-label="Cerrar calculadora"
+              class="text-[#888888] hover:text-white transition-colors">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+
+    <div class="px-6 pt-5">
+
+      <!-- ACTIVOS -->
+      <div class="mb-5">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="text-[11px] font-bold tracking-widest uppercase" style="color:#00C853">Activos</span>
+          <div class="flex-1 h-px" style="background:#2A2A2A"></div>
+          <span id="pn-sum-activos" class="text-[13px] font-bold" style="color:#00C853">0 €</span>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label for="pn-vivienda" class="block text-[11px] font-bold tracking-widest uppercase mb-1" style="color:#888888">Vivienda / inmuebles (€)</label>
+            <input id="pn-vivienda" type="number" value="" min="0" placeholder="0"
+                   class="w-full rounded-lg px-3 py-2 text-white text-[15px]"
+                   style="background:#0A0A0A;border:1px solid #2A2A2A;outline:none;transition:border-color 200ms"
+                   onfocus="this.style.borderColor='#00C853'" onblur="this.style.borderColor='#2A2A2A'">
+          </div>
+          <div>
+            <label for="pn-vehiculo" class="block text-[11px] font-bold tracking-widest uppercase mb-1" style="color:#888888">Vehículo (€)</label>
+            <input id="pn-vehiculo" type="number" value="" min="0" placeholder="0"
+                   class="w-full rounded-lg px-3 py-2 text-white text-[15px]"
+                   style="background:#0A0A0A;border:1px solid #2A2A2A;outline:none;transition:border-color 200ms"
+                   onfocus="this.style.borderColor='#00C853'" onblur="this.style.borderColor='#2A2A2A'">
+          </div>
+          <div>
+            <label for="pn-inversiones" class="block text-[11px] font-bold tracking-widest uppercase mb-1" style="color:#888888">Inversiones (€)</label>
+            <input id="pn-inversiones" type="number" value="" min="0" placeholder="Fondos, ETFs, acciones..."
+                   class="w-full rounded-lg px-3 py-2 text-white text-[15px]"
+                   style="background:#0A0A0A;border:1px solid #2A2A2A;outline:none;transition:border-color 200ms"
+                   onfocus="this.style.borderColor='#00C853'" onblur="this.style.borderColor='#2A2A2A'">
+          </div>
+          <div>
+            <label for="pn-ahorros" class="block text-[11px] font-bold tracking-widest uppercase mb-1" style="color:#888888">Ahorros en cuenta (€)</label>
+            <input id="pn-ahorros" type="number" value="" min="0" placeholder="0"
+                   class="w-full rounded-lg px-3 py-2 text-white text-[15px]"
+                   style="background:#0A0A0A;border:1px solid #2A2A2A;outline:none;transition:border-color 200ms"
+                   onfocus="this.style.borderColor='#00C853'" onblur="this.style.borderColor='#2A2A2A'">
+          </div>
+          <div>
+            <label for="pn-pensiones" class="block text-[11px] font-bold tracking-widest uppercase mb-1" style="color:#888888">Plan de pensiones (€)</label>
+            <input id="pn-pensiones" type="number" value="" min="0" placeholder="0"
+                   class="w-full rounded-lg px-3 py-2 text-white text-[15px]"
+                   style="background:#0A0A0A;border:1px solid #2A2A2A;outline:none;transition:border-color 200ms"
+                   onfocus="this.style.borderColor='#00C853'" onblur="this.style.borderColor='#2A2A2A'">
+          </div>
+          <div>
+            <label for="pn-otros-activos" class="block text-[11px] font-bold tracking-widest uppercase mb-1" style="color:#888888">Otros activos (€)</label>
+            <input id="pn-otros-activos" type="number" value="" min="0" placeholder="0"
+                   class="w-full rounded-lg px-3 py-2 text-white text-[15px]"
+                   style="background:#0A0A0A;border:1px solid #2A2A2A;outline:none;transition:border-color 200ms"
+                   onfocus="this.style.borderColor='#00C853'" onblur="this.style.borderColor='#2A2A2A'">
+          </div>
+        </div>
+      </div>
+
+      <!-- PASIVOS -->
+      <div class="mb-4">
+        <div class="flex items-center gap-3 mb-3">
+          <span class="text-[11px] font-bold tracking-widest uppercase" style="color:#FF5252">Pasivos</span>
+          <div class="flex-1 h-px" style="background:#2A2A2A"></div>
+          <span id="pn-sum-pasivos" class="text-[13px] font-bold" style="color:#FF5252">0 €</span>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label for="pn-hipoteca" class="block text-[11px] font-bold tracking-widest uppercase mb-1" style="color:#888888">Hipoteca pendiente (€)</label>
+            <input id="pn-hipoteca" type="number" value="" min="0" placeholder="0"
+                   class="w-full rounded-lg px-3 py-2 text-white text-[15px]"
+                   style="background:#0A0A0A;border:1px solid #2A2A2A;outline:none;transition:border-color 200ms"
+                   onfocus="this.style.borderColor='#FF5252'" onblur="this.style.borderColor='#2A2A2A'">
+          </div>
+          <div>
+            <label for="pn-prestamos" class="block text-[11px] font-bold tracking-widest uppercase mb-1" style="color:#888888">Préstamos personales (€)</label>
+            <input id="pn-prestamos" type="number" value="" min="0" placeholder="0"
+                   class="w-full rounded-lg px-3 py-2 text-white text-[15px]"
+                   style="background:#0A0A0A;border:1px solid #2A2A2A;outline:none;transition:border-color 200ms"
+                   onfocus="this.style.borderColor='#FF5252'" onblur="this.style.borderColor='#2A2A2A'">
+          </div>
+          <div>
+            <label for="pn-tarjetas" class="block text-[11px] font-bold tracking-widest uppercase mb-1" style="color:#888888">Deuda tarjetas (€)</label>
+            <input id="pn-tarjetas" type="number" value="" min="0" placeholder="0"
+                   class="w-full rounded-lg px-3 py-2 text-white text-[15px]"
+                   style="background:#0A0A0A;border:1px solid #2A2A2A;outline:none;transition:border-color 200ms"
+                   onfocus="this.style.borderColor='#FF5252'" onblur="this.style.borderColor='#2A2A2A'">
+          </div>
+          <div>
+            <label for="pn-otros-pasivos" class="block text-[11px] font-bold tracking-widest uppercase mb-1" style="color:#888888">Otras deudas (€)</label>
+            <input id="pn-otros-pasivos" type="number" value="" min="0" placeholder="0"
+                   class="w-full rounded-lg px-3 py-2 text-white text-[15px]"
+                   style="background:#0A0A0A;border:1px solid #2A2A2A;outline:none;transition:border-color 200ms"
+                   onfocus="this.style.borderColor='#FF5252'" onblur="this.style.borderColor='#2A2A2A'">
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Stats -->
+    <div class="px-6 pt-1 pb-2 grid grid-cols-3 gap-3">
+      <div class="rounded-xl p-4" style="background:#0A0A0A;border:1px solid #1A1A1A">
+        <p class="text-[10px] font-bold tracking-widest uppercase mb-2" style="color:#888888">Total activos</p>
+        <p id="pn-stat-activos" class="font-bold text-white" style="font-size:18px;line-height:1">0 €</p>
+      </div>
+      <div class="rounded-xl p-4" style="background:#0A0A0A;border:1px solid #1A1A1A">
+        <p class="text-[10px] font-bold tracking-widest uppercase mb-2" style="color:#888888">Total pasivos</p>
+        <p id="pn-stat-pasivos" class="font-bold text-white" style="font-size:18px;line-height:1">0 €</p>
+      </div>
+      <div id="pn-box-neto" class="rounded-xl p-4" style="background:#0A0A0A;border:2px solid #00C853">
+        <p class="text-[10px] font-bold tracking-widest uppercase mb-2" style="color:#888888">Patrimonio neto</p>
+        <p id="pn-stat-neto" class="font-bold" style="font-size:22px;line-height:1;color:#00C853">0 €</p>
+      </div>
+    </div>
+
+    <!-- Gráfico donut -->
+    <div class="px-6 pb-4" style="position:relative;height:220px">
+      <canvas id="pn-chart" aria-label="Composición de activos"></canvas>
+    </div>
+
+    <p class="px-6 pb-5 text-[11px]" style="color:#555555">
+      Simulación educativa. No es asesoramiento financiero.
+    </p>
+
+  </div>
+</div>
+
+<script>
+(function () {
+  var pnChart      = null;
+  var totalActivos = 0;
+
+  var ASSET_IDS    = ['pn-vivienda','pn-vehiculo','pn-inversiones','pn-ahorros','pn-pensiones','pn-otros-activos'];
+  var ASSET_LABELS = ['Vivienda','Vehículo','Inversiones','Ahorros','Pensiones','Otros'];
+  var ASSET_COLORS = ['#00C853','#00BFA5','#26C6DA','#7C4DFF','#FF9100','#78909C'];
+  var LIAB_IDS     = ['pn-hipoteca','pn-prestamos','pn-tarjetas','pn-otros-pasivos'];
+
+  function fmt(n) {
+    return new Intl.NumberFormat('es-ES', {
+      style: 'currency', currency: 'EUR', maximumFractionDigits: 0
+    }).format(n);
+  }
+
+  function fmtK(v) {
+    if (Math.abs(v) >= 1e6) return (v / 1e6).toFixed(1).replace('.', ',') + 'M€';
+    if (Math.abs(v) >= 1e3) return (v / 1e3).toFixed(0) + 'k€';
+    return v + '€';
+  }
+
+  function getVal(id) {
+    return Math.max(0, parseFloat(document.getElementById(id).value) || 0);
+  }
+
+  function calcPN() {
+    var assetVals    = ASSET_IDS.map(getVal);
+    totalActivos     = assetVals.reduce(function (s, v) { return s + v; }, 0);
+    var totalPasivos = LIAB_IDS.map(getVal).reduce(function (s, v) { return s + v; }, 0);
+    var neto         = totalActivos - totalPasivos;
+
+    document.getElementById('pn-stat-activos').textContent = fmt(totalActivos);
+    document.getElementById('pn-stat-pasivos').textContent = fmt(totalPasivos);
+    document.getElementById('pn-sum-activos').textContent  = fmt(totalActivos);
+    document.getElementById('pn-sum-pasivos').textContent  = fmt(totalPasivos);
+
+    var netoEl         = document.getElementById('pn-stat-neto');
+    netoEl.textContent = fmt(neto);
+    netoEl.style.color = neto >= 0 ? '#00C853' : '#FF5252';
+    document.getElementById('pn-box-neto').style.borderColor = neto >= 0 ? '#00C853' : '#FF5252';
+
+    // Donut: solo activos con valor > 0
+    var cLabels = [], cData = [], cColors = [];
+    assetVals.forEach(function (v, i) {
+      if (v > 0) {
+        cLabels.push(ASSET_LABELS[i]);
+        cData.push(v);
+        cColors.push(ASSET_COLORS[i]);
+      }
+    });
+    var empty = cData.length === 0;
+    if (empty) { cLabels = ['Sin activos']; cData = [1]; cColors = ['#2A2A2A']; }
+
+    if (pnChart) {
+      pnChart.data.labels                      = cLabels;
+      pnChart.data.datasets[0].data            = cData;
+      pnChart.data.datasets[0].backgroundColor = cColors;
+      pnChart.update();
+    } else {
+      var ctx = document.getElementById('pn-chart').getContext('2d');
+      pnChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          labels: cLabels,
+          datasets: [{
+            data: cData,
+            backgroundColor: cColors,
+            borderWidth: 2,
+            borderColor: '#111111',
+            hoverOffset: 6
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          cutout: '68%',
+          animation: { duration: 300 },
+          plugins: {
+            legend: {
+              position: 'right',
+              labels: {
+                color: '#888888',
+                font: { size: 11 },
+                padding: 10,
+                usePointStyle: true,
+                filter: function (item) { return item.text !== 'Sin activos'; }
+              }
+            },
+            tooltip: {
+              backgroundColor: '#1A1A1A',
+              borderColor: '#2A2A2A',
+              borderWidth: 1,
+              titleColor: '#FFFFFF',
+              bodyColor: '#888888',
+              callbacks: {
+                label: function (c) {
+                  if (c.label === 'Sin activos') return ' Introduce activos para ver la distribución';
+                  var total = c.chart.data.datasets[0].data.reduce(function (s, v) { return s + v; }, 0);
+                  return ' ' + fmt(c.raw) + ' · ' + Math.round(c.raw / total * 100) + '%';
+                }
+              }
+            }
+          }
+        },
+        plugins: [{
+          id: 'pn-center',
+          beforeDraw: function (chart) {
+            var meta = chart.getDatasetMeta(0);
+            if (!meta.data || !meta.data.length) return;
+            var cx  = meta.data[0].x;
+            var cy  = meta.data[0].y;
+            var ctx = chart.ctx;
+            ctx.save();
+            ctx.textAlign    = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillStyle    = '#555555';
+            ctx.font         = '10px Inter, sans-serif';
+            ctx.fillText('Activos', cx, cy - 9);
+            ctx.fillStyle = totalActivos > 0 ? '#FFFFFF' : '#555555';
+            ctx.font      = 'bold 13px Inter, sans-serif';
+            ctx.fillText(fmtK(totalActivos), cx, cy + 8);
+            ctx.restore();
+          }
+        }]
+      });
+    }
+  }
+
+  window.openNetWorthCalculator = function () {
+    document.getElementById('modal-pn').style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    var inp = document.getElementById('modal-pn').querySelector('input');
+    if (inp) inp.focus();
+    requestAnimationFrame(calcPN);
+  };
+
+  document.getElementById('modal-pn').addEventListener('click', function (e) {
+    if (e.target === this) window.closeModal('modal-pn');
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') window.closeModal('modal-pn');
+  });
+
+  ASSET_IDS.concat(LIAB_IDS).forEach(function (id) {
+    document.getElementById(id).addEventListener('input', calcPN);
   });
 }());
 </script>
