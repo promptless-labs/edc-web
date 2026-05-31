@@ -74,6 +74,7 @@ edc-web/
 6. **Accesibilidad (WCAG AA)** como requisito: contraste sobre `#0A0A0A`, foco visible, navegación por teclado, HTML semántico. Cuida los iconos de Material Symbols (texto alternativo / `aria-hidden` cuando sean decorativos).
 7. **Español.** Todo el contenido visible va en español.
 8. **Sin secretos.** Un sitio estático sirve todo al cliente; nunca incrustes claves, tokens ni credenciales. Los enlaces de afiliado deben llevar su descargo correspondiente.
+9. **Indentación.** Todo el HTML debe estar correctamente indentado: 2 espacios por nivel, elementos anidados un nivel más profundo que su padre. El código JavaScript dentro de `<script>` también se indenta. Usa `npx prettier --write <archivo> --print-width 200 --tab-width 2 --html-whitespace-sensitivity ignore` para formatear. No dejes HTML plano sin indentar.
 
 ---
 
