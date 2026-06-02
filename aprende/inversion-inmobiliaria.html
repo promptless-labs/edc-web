@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link rel="icon" type="image/png" href="../logo.png">
+<title>Inversión inmobiliaria: rentabilidad real antes de comprar un piso | EDC</title>
+<meta name="description" content="Calcula la rentabilidad neta real de tu inversión inmobiliaria en España. Gastos ocultos, hipoteca, IRPF y alternativas como SOCIMIs y REITs.">
+<meta property="og:title" content="Inversión inmobiliaria: rentabilidad real antes de comprar un piso | EDC">
+<meta property="og:description" content="Calcula la rentabilidad neta real de tu inversión inmobiliaria en España.">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Inversión inmobiliaria: rentabilidad real antes de comprar un piso | EDC">
+<meta name="twitter:description" content="Calcula la rentabilidad neta real de tu inversión inmobiliaria en España.">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-error-container": "#ffdad6","tertiary-container": "#aeadad","on-surface-variant": "#bbcbb8","surface-variant": "#2e372e","surface-dim": "#0d150d","surface-container": "#192219","on-tertiary": "#303031","on-secondary-fixed-variant": "#454747","error-container": "#93000a","on-primary-container": "#004c1b","inverse-primary": "#006e2a","surface-container-highest": "#2e372e","secondary": "#c6c6c7","outline": "#869583","on-background": "#dce5d7","background": "#0d150d","secondary-fixed": "#e2e2e2","inverse-on-surface": "#2a3329","error": "#ffb4ab","on-secondary-fixed": "#1a1c1c","primary-fixed-dim": "#3ce36a","surface-container-lowest": "#081008","tertiary-fixed": "#e3e2e2","surface": "#0d150d","primary-container": "#00c853","tertiary": "#c9c8c8","secondary-container": "#454747","on-tertiary-fixed": "#1b1c1c","on-secondary": "#2f3131","on-primary-fixed-variant": "#00531e","on-surface": "#dce5d7","inverse-surface": "#dce5d7","secondary-fixed-dim": "#c6c6c7","surface-bright": "#333b32","surface-container-high": "#242c23","on-primary": "#003912","surface-tint": "#3ce36a","outline-variant": "#3c4a3c","on-secondary-container": "#b4b5b5","on-tertiary-fixed-variant": "#464747","primary": "#3fe56c","primary-fixed": "#69ff87","tertiary-fixed-dim": "#c7c6c6","on-tertiary-container": "#404141","surface-container-low": "#151e15","on-primary-fixed": "#002108","on-error": "#690005"
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem","lg": "0.5rem","xl": "0.75rem","full": "9999px"},
+                    spacing: {"lg": "48px","xl": "80px","margin-desktop": "64px","margin-mobile": "16px","md": "24px","sm": "12px","gutter": "24px","xs": "4px","base": "8px"},
+                    fontFamily: {"body-lg": ["Inter"],"headline-md": ["Inter"],"label-sm": ["Inter"],"body-md": ["Inter"],"display-lg": ["Inter"],"display-lg-mobile": ["Inter"]},
+                    fontSize: {
+                        "body-lg": ["18px", { lineHeight: "1.6", letterSpacing: "0em", fontWeight: "300" }],
+                        "headline-md": ["24px", { lineHeight: "1.2", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "label-sm": ["12px", { lineHeight: "1", letterSpacing: "0.05em", fontWeight: "600" }],
+                        "body-md": ["16px", { lineHeight: "1.6", letterSpacing: "0em", fontWeight: "300" }],
+                        "display-lg": ["48px", { lineHeight: "1.1", letterSpacing: "-0.04em", fontWeight: "700" }],
+                        "display-lg-mobile": ["32px", { lineHeight: "1.1", letterSpacing: "-0.04em", fontWeight: "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .edc-card { background-color: #1A1A1A; border: 1px solid #2A2A2A; border-radius: 12px; transition: all 200ms ease; }
+        .edc-card:hover { border-color: #3A3A3A; background-color: #1e1e1e; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; color: #00C853; }
+        input[type="range"] { -webkit-appearance: none; appearance: none; width: 100%; height: 4px; background: #2A2A2A; border-radius: 2px; outline: none; cursor: pointer; }
+        input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 16px; height: 16px; background: #00C853; border-radius: 50%; cursor: pointer; }
+        input[type="range"]::-moz-range-thumb { width: 16px; height: 16px; background: #00C853; border-radius: 50%; cursor: pointer; border: none; }
+        tr.clickable-row { cursor: pointer; }
+        tr.clickable-row:hover td { background-color: rgba(255,255,255,0.03) !important; }
+    </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "BreadcrumbList", "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "../index.html" },
+        { "@type": "ListItem", "position": 2, "name": "Aprende", "item": "../index.html#aprende" },
+        { "@type": "ListItem", "position": 3, "name": "Inversión inmobiliaria" }
+    ]},
+    { "@type": "Article", "headline": "Inversión inmobiliaria: todo lo que nadie te cuenta antes de comprar un piso para alquilar", "inLanguage": "es", "publisher": { "@type": "Organization", "name": "El Dinero Es Claro" } }
+  ]
+}
+</script>
+</head>
+<body class="bg-[#0A0A0A] text-on-surface font-body-lg min-h-screen flex flex-col pt-[120px]">
+
+<!-- Nav -->
+<nav class="bg-background dark:bg-background fixed top-0 w-full border-b border-outline-variant dark:border-outline-variant z-50">
+<div class="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-[1200px] mx-auto">
+<a class="font-headline-md text-headline-md font-bold text-on-surface dark:text-on-surface" href="../index.html"><img src="../logo.png" alt="EDC" style="height: 64px;"></a>
+<div class="hidden md:flex gap-md items-center">
+<a class="text-on-surface dark:text-on-surface hover:text-primary transition-colors duration-200 font-label-sm text-label-sm" href="../index.html#inicio">Inicio</a>
+<a class="text-on-surface dark:text-on-surface hover:text-primary transition-colors duration-200 font-label-sm text-label-sm" href="../index.html#herramientas">Herramientas</a>
+<a class="text-primary dark:text-primary font-bold border-b-2 border-primary pb-1 font-label-sm text-label-sm" href="../index.html#aprende">Aprende</a>
+<a class="text-on-surface dark:text-on-surface hover:text-primary transition-colors duration-200 font-label-sm text-label-sm" href="../index.html#plataformas">Plataformas</a>
+<a class="text-on-surface dark:text-on-surface hover:text-primary transition-colors duration-200 font-label-sm text-label-sm" href="../index.html#sobre-edc">Sobre EDC</a>
+</div>
+<a class="font-label-sm text-label-sm px-6 py-3 rounded-full hover:bg-primary transition-colors duration-200" href="../index.html" style="background-color:rgb(0,200,83);color:rgb(0,0,0)">Empieza gratis</a>
+</div>
+</nav>
+
+<!-- Subnav guías -->
+<nav class="fixed top-20 w-full z-40" style="background-color:#111111;border-bottom:1px solid #2A2A2A;" aria-label="Guías de inversión">
+  <div class="overflow-x-auto max-w-[1200px] mx-auto" style="scrollbar-width:none;-webkit-overflow-scrolling:touch;">
+    <div class="flex items-stretch h-10 px-margin-mobile md:px-margin-desktop gap-md whitespace-nowrap">
+      <a href="index.html" class="flex items-center shrink-0 text-label-sm font-label-sm border-b-2 border-transparent text-[#888888] hover:text-white transition-colors duration-200">Por dónde empezar</a>
+      <a href="cuentas-remuneradas.html" class="flex items-center shrink-0 text-label-sm font-label-sm border-b-2 border-transparent text-[#888888] hover:text-white transition-colors duration-200">Cuentas remuneradas</a>
+      <a href="letras-bonos.html" class="flex items-center shrink-0 text-label-sm font-label-sm border-b-2 border-transparent text-[#888888] hover:text-white transition-colors duration-200">Letras y bonos</a>
+      <a href="fondos-indexados.html" class="flex items-center shrink-0 text-label-sm font-label-sm border-b-2 border-transparent text-[#888888] hover:text-white transition-colors duration-200">Fondos indexados</a>
+      <a href="acciones.html" class="flex items-center shrink-0 text-label-sm font-label-sm border-b-2 border-transparent text-[#888888] hover:text-white transition-colors duration-200">Acciones</a>
+      <a href="criptomonedas.html" class="flex items-center shrink-0 text-label-sm font-label-sm border-b-2 border-transparent text-[#888888] hover:text-white transition-colors duration-200">Criptomonedas</a>
+      <a href="inversion-inmobiliaria.html" class="flex items-center shrink-0 text-label-sm font-label-sm border-b-2 border-[#00C853] text-[#00C853]" aria-current="page">Inmobiliario</a>
+    </div>
+  </div>
+</nav>
+
+<main class="flex-grow">
+
+<!-- HERO -->
+<section class="relative pt-xl pb-xl px-margin-mobile md:px-margin-desktop border-b border-[#2A2A2A] overflow-hidden">
+<div class="absolute inset-0 flex justify-center items-start pointer-events-none opacity-10" style="padding-top:80px">
+    <div class="w-[600px] h-[300px] bg-primary-container rounded-full blur-[120px]"></div>
+</div>
+<div class="relative z-10 max-w-[1200px] mx-auto">
+    <nav aria-label="Breadcrumb" class="mb-6">
+        <ol class="flex items-center gap-2 text-[12px]" style="color:#555555">
+            <li><a href="../index.html" class="hover:text-[#00C853] transition-colors">Inicio</a></li>
+            <li>›</li>
+            <li><a href="../index.html#aprende" class="hover:text-[#00C853] transition-colors">Aprende</a></li>
+            <li>›</li>
+            <li style="color:#888888">Inversión inmobiliaria</li>
+        </ol>
+    </nav>
+    <span class="inline-block text-[11px] font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-6" style="background:#0A2A15;color:#00C853;border:1px solid rgba(0,200,83,0.2)">Guía gratuita</span>
+    <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-[#FFFFFF] mb-md tracking-tight" style="max-width:800px">
+        Inversión inmobiliaria: todo lo que nadie te cuenta antes de comprar un piso para alquilar
+    </h1>
+    <p class="font-body-lg text-body-lg text-[#888888]" style="max-width:620px">Comprar para alquilar puede ser una gran inversión. O una trampa cara. La diferencia está en los números.</p>
+</div>
+</section>
+
+<!-- RENTABILIDAD REAL -->
+<section class="py-xl px-margin-mobile md:px-margin-desktop bg-[#0A0A0A] border-b border-[#2A2A2A]">
+<div class="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-xl items-start">
+    <div>
+        <span class="text-[#00C853] text-[12px] font-bold tracking-widest uppercase mb-4 block">LA RENTABILIDAD REAL</span>
+        <h2 class="font-headline-md text-headline-md text-[#FFFFFF] mb-6">La rentabilidad real no es la que te dicen</h2>
+        <p class="font-body-md text-body-md text-[#888888] mb-4">Cuando alguien te dice que un piso renta el 5%, casi siempre está hablando de <strong class="text-[#FFFFFF]">rentabilidad bruta</strong>: simplemente divide el alquiler anual entre el precio de compra. Es un número que ignora la mayoría de costes reales.</p>
+        <p class="font-body-md text-body-md text-[#888888] mb-4">La <strong class="text-[#FFFFFF]">rentabilidad neta</strong> es lo que importa: cuánto queda en tu bolsillo después de descontar los gastos de compra, los costes anuales recurrentes, los periodos sin inquilino y los impuestos.</p>
+        <p class="font-body-md text-body-md text-[#888888]">La diferencia entre ambas puede ser de 2 a 3 puntos porcentuales. En una inversión de 150.000&nbsp;€, eso es más de 3.000&nbsp;€ al año que no verás en tu cuenta.</p>
+    </div>
+    <div class="flex flex-col gap-4">
+        <div class="edc-card p-6">
+            <h3 class="font-bold text-[#FFFFFF] text-[15px] mb-3">Ejemplo real: piso de 150.000&nbsp;€</h3>
+            <div class="flex flex-col gap-2 text-[14px]">
+                <div class="flex justify-between"><span class="text-[#888888]">Alquiler mensual</span><span class="text-white font-bold">700&nbsp;€/mes</span></div>
+                <div class="flex justify-between"><span class="text-[#888888]">Rentabilidad bruta</span><span style="color:#FFD740" class="font-bold">5,6&nbsp;%</span></div>
+                <div class="h-px" style="background:#2A2A2A;margin:4px 0"></div>
+                <div class="flex justify-between"><span class="text-[#888888]">Gastos compra (10%)</span><span class="text-[#888888]">−15.000&nbsp;€</span></div>
+                <div class="flex justify-between"><span class="text-[#888888]">IBI + comunidad + seguro</span><span class="text-[#888888]">−1.200&nbsp;€/año</span></div>
+                <div class="flex justify-between"><span class="text-[#888888]">Mantenimiento (1%)</span><span class="text-[#888888]">−1.500&nbsp;€/año</span></div>
+                <div class="flex justify-between"><span class="text-[#888888]">1,5 meses vacíos</span><span class="text-[#888888]">−1.050&nbsp;€/año</span></div>
+                <div class="h-px" style="background:#2A2A2A;margin:4px 0"></div>
+                <div class="flex justify-between"><span class="text-[#888888]">Rentabilidad neta (antes IRPF)</span><span style="color:#FFD740" class="font-bold">2,82&nbsp;%</span></div>
+                <div class="flex justify-between"><span class="text-[#888888]">Rentabilidad neta (después IRPF)</span><span style="color:#FF5252" class="font-bold">2,48&nbsp;%</span></div>
+            </div>
+        </div>
+        <div class="rounded-xl p-5" style="background:rgba(0,200,83,0.06);border:1px solid rgba(0,200,83,0.25)">
+            <div class="flex items-start gap-3">
+                <span class="material-symbols-outlined text-[20px]" style="flex-shrink:0;margin-top:2px">info</span>
+                <p class="text-[14px] text-[#FFFFFF]">Si tu rentabilidad neta no supera el <strong>4&nbsp;%</strong>, el inmobiliario probablemente no compensa frente a un fondo indexado.</p>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<!-- CALCULADORA RENTABILIDAD -->
+<section class="py-xl px-margin-mobile md:px-margin-desktop bg-[#111111] border-b border-[#2A2A2A]">
+<div class="max-w-[1200px] mx-auto text-center">
+    <span class="text-[#00C853] text-[12px] font-bold tracking-widest uppercase mb-4 block">HERRAMIENTA GRATUITA</span>
+    <h2 class="font-headline-md text-headline-md text-[#FFFFFF] mb-4">Calcula la rentabilidad real de tu inmueble</h2>
+    <p class="font-body-lg text-body-lg text-[#888888] max-w-2xl mx-auto mb-8">Introduce los datos de tu operación y compara con otras alternativas de inversión.</p>
+    <button onclick="window.openRentabilidadCalculator()" class="px-8 py-4 rounded-full font-label-sm text-label-sm transition-colors duration-200 hover:opacity-90" style="background:#00C853;color:#0A0A0A">
+        Calcular rentabilidad →
+    </button>
+</div>
+</section>
+
+<!-- GASTOS OCULTOS -->
+<section class="py-xl px-margin-mobile md:px-margin-desktop bg-[#0A0A0A] border-b border-[#2A2A2A]">
+<div class="max-w-[1200px] mx-auto">
+    <div class="text-center mb-xl">
+        <span class="text-[#00C853] text-[12px] font-bold tracking-widest uppercase mb-4 block">LO QUE NADIE DICE</span>
+        <h2 class="font-headline-md text-headline-md text-[#FFFFFF] mb-4">Los gastos ocultos que destruyen la rentabilidad</h2>
+        <p class="font-body-lg text-body-lg text-[#888888] max-w-2xl mx-auto">Muchos inversores no los calculan hasta que ya han comprado. Hazlo antes.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-[900px] mx-auto">
+        <div class="edc-card p-6 flex items-start gap-4">
+            <span class="material-symbols-outlined text-[22px]" style="flex-shrink:0;margin-top:2px">receipt_long</span>
+            <div>
+                <h3 class="font-bold text-[#FFFFFF] text-[15px] mb-1">Gastos de compra: 8–12&nbsp;%</h3>
+                <p class="text-[14px] text-[#888888]">ITP (4–10&nbsp;%), notaría, registro, gestoría. En un piso de 150.000&nbsp;€ son entre 12.000&nbsp;€ y 18.000&nbsp;€ que debes tener disponibles.</p>
+            </div>
+        </div>
+        <div class="edc-card p-6 flex items-start gap-4">
+            <span class="material-symbols-outlined text-[22px]" style="flex-shrink:0;margin-top:2px">account_balance</span>
+            <div>
+                <h3 class="font-bold text-[#FFFFFF] text-[15px] mb-1">IBI: 200–800&nbsp;€/año</h3>
+                <p class="text-[14px] text-[#888888]">Varía según municipio y valor catastral. En Madrid o Barcelona puede superar los 600&nbsp;€ anuales incluso en pisos modestos.</p>
+            </div>
+        </div>
+        <div class="edc-card p-6 flex items-start gap-4">
+            <span class="material-symbols-outlined text-[22px]" style="flex-shrink:0;margin-top:2px">home_repair_service</span>
+            <div>
+                <h3 class="font-bold text-[#FFFFFF] text-[15px] mb-1">Mantenimiento: 1&nbsp;% anual</h3>
+                <p class="text-[14px] text-[#888888]">Reserva del 1&nbsp;% del valor del inmueble cada año para reparaciones, reformas y electrodomésticos. Son 1.500&nbsp;€/año en un piso de 150.000&nbsp;€.</p>
+            </div>
+        </div>
+        <div class="edc-card p-6 flex items-start gap-4">
+            <span class="material-symbols-outlined text-[22px]" style="flex-shrink:0;margin-top:2px">people</span>
+            <div>
+                <h3 class="font-bold text-[#FFFFFF] text-[15px] mb-1">Comunidad de propietarios</h3>
+                <p class="text-[14px] text-[#888888]">Entre 30&nbsp;€ y 150&nbsp;€/mes. Las derramas extraordinarias (ascensor, fachada) pueden añadir miles de euros sin previo aviso.</p>
+            </div>
+        </div>
+        <div class="edc-card p-6 flex items-start gap-4">
+            <span class="material-symbols-outlined text-[22px]" style="flex-shrink:0;margin-top:2px">calendar_month</span>
+            <div>
+                <h3 class="font-bold text-[#FFFFFF] text-[15px] mb-1">Periodos vacíos: 1–2 meses/año</h3>
+                <p class="text-[14px] text-[#888888]">De media, un piso está vacío entre 1 y 2 meses al año por cambio de inquilino o reforma. Son entre 700&nbsp;€ y 1.400&nbsp;€ de ingresos que no entran.</p>
+            </div>
+        </div>
+        <div class="edc-card p-6 flex items-start gap-4">
+            <span class="material-symbols-outlined text-[22px]" style="flex-shrink:0;margin-top:2px">percent</span>
+            <div>
+                <h3 class="font-bold text-[#FFFFFF] text-[15px] mb-1">IRPF: reducción del 60&nbsp;%</h3>
+                <p class="text-[14px] text-[#888888]">El rendimiento neto del alquiler de vivienda habitual tiene una reducción del 60&nbsp;%. El 40&nbsp;% restante tributa a tu tipo marginal. No es un coste cero.</p>
+            </div>
+        </div>
+        <div class="edc-card p-6 flex items-start gap-4 md:col-span-2">
+            <span class="material-symbols-outlined text-[22px]" style="flex-shrink:0;margin-top:2px">gavel</span>
+            <div>
+                <h3 class="font-bold text-[#FFFFFF] text-[15px] mb-1">Gastos jurídicos por impago: 3.000–6.000&nbsp;€ y 12–18 meses</h3>
+                <p class="text-[14px] text-[#888888]">Un proceso de desahucio en España dura entre 12 y 18 meses y puede costarte entre 3.000&nbsp;€ y 6.000&nbsp;€ en abogado y procurador, además de todos los meses sin cobrar alquiler.</p>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<!-- HIPOTECA CUÁNDO TIENE SENTIDO -->
+<section class="py-xl px-margin-mobile md:px-margin-desktop bg-[#111111] border-b border-[#2A2A2A]">
+<div class="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-xl items-start">
+    <div>
+        <span class="text-[#00C853] text-[12px] font-bold tracking-widest uppercase mb-4 block">FINANCIACIÓN</span>
+        <h2 class="font-headline-md text-headline-md text-[#FFFFFF] mb-6">¿Necesito hipoteca? Cuándo tiene sentido</h2>
+        <p class="font-body-md text-body-md text-[#888888] mb-6">La hipoteca puede multiplicar tu rentabilidad sobre el capital invertido (apalancamiento) o destruirla si los tipos suben o el piso queda vacío. No es buena ni mala: depende de los números.</p>
+        <div class="flex flex-col gap-4">
+            <div class="flex items-start gap-4">
+                <span class="material-symbols-outlined text-[22px]" style="flex-shrink:0;margin-top:2px">home</span>
+                <p class="text-[14px] text-[#888888]"><strong class="text-[#FFFFFF]">El banco financia el 80&nbsp;%</strong> del precio de compra (70&nbsp;% si no es primera vivienda ni residencia habitual). El 20&nbsp;% restante más los gastos de compra deben salir de tu bolsillo.</p>
+            </div>
+            <div class="flex items-start gap-4">
+                <span class="material-symbols-outlined text-[22px]" style="flex-shrink:0;margin-top:2px">savings</span>
+                <p class="text-[14px] text-[#888888]"><strong class="text-[#FFFFFF]">Necesitas entre el 30 y el 35&nbsp;%</strong> del precio disponible: el 20&nbsp;% de entrada más el 10–12&nbsp;% en gastos de compra. En un piso de 150.000&nbsp;€ son al menos 45.000&nbsp;€ en efectivo.</p>
+            </div>
+            <div class="flex items-start gap-4">
+                <span class="material-symbols-outlined text-[22px]" style="flex-shrink:0;margin-top:2px">trending_down</span>
+                <p class="text-[14px] text-[#888888]"><strong class="text-[#FFFFFF]">La cuota no debería superar el 30–35&nbsp;%</strong> de tus ingresos netos mensuales. Por encima de ese umbral, cualquier imprevisto puede convertirse en un problema real.</p>
+            </div>
+            <div class="flex items-start gap-4">
+                <span class="material-symbols-outlined text-[22px]" style="flex-shrink:0;margin-top:2px">lock</span>
+                <p class="text-[14px] text-[#888888]"><strong class="text-[#FFFFFF]">Tener hipoteca te obliga</strong> a mantener la inversión aunque la rentabilidad caiga. Un fondo indexado se puede liquidar en 2–3 días; un piso puede tardar meses.</p>
+            </div>
+        </div>
+    </div>
+    <div class="flex flex-col gap-4">
+        <div class="edc-card p-6">
+            <h3 class="font-bold text-[#FFFFFF] text-[15px] mb-4">Fija vs. Variable</h3>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="rounded-xl p-4" style="background:#0A0A0A;border:1px solid rgba(0,200,83,0.3)">
+                    <p class="text-[11px] font-bold tracking-widest uppercase mb-2" style="color:#00C853">FIJA</p>
+                    <p class="text-[13px] text-[#888888]">Cuota constante durante toda la vida del préstamo. Más cara al inicio pero sin sorpresas aunque suban los tipos.</p>
+                </div>
+                <div class="rounded-xl p-4" style="background:#0A0A0A;border:1px solid #2A2A2A">
+                    <p class="text-[11px] font-bold tracking-widest uppercase mb-2" style="color:#FFD740">VARIABLE</p>
+                    <p class="text-[13px] text-[#888888]">Cuota ligada al Euríbor + diferencial. Más barata cuando los tipos son bajos, pero puede subir cientos de euros al mes.</p>
+                </div>
+            </div>
+        </div>
+        <div class="rounded-xl p-5" style="background:rgba(255,215,64,0.06);border:1px solid rgba(255,215,64,0.2)">
+            <div class="flex items-start gap-3">
+                <span class="material-symbols-outlined text-[20px]" style="flex-shrink:0;margin-top:2px;color:#FFD740">warning</span>
+                <p class="text-[14px] text-[#888888]">Con tipos al 3–4&nbsp;%, el coste de la hipoteca puede superar la rentabilidad bruta del alquiler en los primeros años. <strong class="text-[#FFFFFF]">Haz los números antes de firmar.</strong></p>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<!-- CALCULADORA HIPOTECA -->
+<section class="py-xl px-margin-mobile md:px-margin-desktop bg-[#0A0A0A] border-b border-[#2A2A2A]">
+<div class="max-w-[1200px] mx-auto text-center">
+    <span class="text-[#00C853] text-[12px] font-bold tracking-widest uppercase mb-4 block">HERRAMIENTA GRATUITA</span>
+    <h2 class="font-headline-md text-headline-md text-[#FFFFFF] mb-4">Calcula tu cuota hipotecaria</h2>
+    <p class="font-body-lg text-body-lg text-[#888888] max-w-2xl mx-auto mb-8">Conoce la cuota mensual, el total de intereses y si la hipoteca encaja en tu presupuesto.</p>
+    <button onclick="window.openHipotecaCalculator()" class="px-8 py-4 rounded-full font-label-sm text-label-sm transition-colors duration-200 hover:opacity-90" style="background:#00C853;color:#0A0A0A">
+        Calcular hipoteca →
+    </button>
+</div>
+</section>
+
+<!-- TRES FORMAS SIN COMPRAR -->
+<section class="py-xl px-margin-mobile md:px-margin-desktop bg-[#111111] border-b border-[#2A2A2A]">
+<div class="max-w-[1200px] mx-auto">
+    <div class="text-center mb-xl">
+        <span class="text-[#00C853] text-[12px] font-bold tracking-widest uppercase mb-4 block">ALTERNATIVAS</span>
+        <h2 class="font-headline-md text-headline-md text-[#FFFFFF] mb-4">Tres formas de invertir en inmobiliario sin comprar un piso</h2>
+        <p class="font-body-lg text-body-lg text-[#888888] max-w-2xl mx-auto">Exposición al sector inmobiliario con más liquidez, menos gestión y desde 1&nbsp;€.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter mb-8">
+        <div class="edc-card flex flex-col p-8">
+            <span class="material-symbols-outlined text-3xl mb-4">business</span>
+            <h3 class="font-bold text-[18px] text-[#FFFFFF] mb-2">SOCIMIs (España)</h3>
+            <p class="text-[14px] text-[#888888] flex-grow mb-4">Sociedades cotizadas en bolsa obligadas por ley a repartir el 80&nbsp;% de sus beneficios como dividendos. Inviertes en inmobiliario institucional desde cualquier cantidad.</p>
+            <p class="text-[12px]" style="color:#555555">Ejemplos: Merlin Properties (MRL), Inmobiliaria Colonial (COL)</p>
+        </div>
+        <div class="edc-card flex flex-col p-8">
+            <span class="material-symbols-outlined text-3xl mb-4">public</span>
+            <h3 class="font-bold text-[18px] text-[#FFFFFF] mb-2">REITs Globales</h3>
+            <p class="text-[14px] text-[#888888] flex-grow mb-4">A través de ETFs como el iShares Developed Markets Property Yield o el Amundi FTSE EPRA NAREIT Global. Diversificación inmobiliaria en 20+ países desde 1&nbsp;€.</p>
+            <p class="text-[12px]" style="color:#555555">Disponibles en Trade Republic y MyInvestor</p>
+        </div>
+        <div class="edc-card flex flex-col p-8">
+            <span class="material-symbols-outlined text-3xl mb-4">groups</span>
+            <h3 class="font-bold text-[18px] text-[#FFFFFF] mb-2">Crowdfunding Inmobiliario</h3>
+            <p class="text-[14px] text-[#888888] flex-grow mb-4">Plataformas como Urbanitae o Brickstarter permiten participar desde 200&nbsp;€ en proyectos de promoción o alquiler. Rentabilidades del 8–12&nbsp;% con mayor riesgo.</p>
+            <p class="text-[12px]" style="color:#555555">Reguladas por CNMV bajo el reglamento europeo de crowdfunding</p>
+        </div>
+    </div>
+    <div class="rounded-xl p-6" style="background:#1A1A1A;border:1px solid #2A2A2A">
+        <p class="text-[13px] font-bold text-[#888888] uppercase tracking-widest mb-4">Empieza desde estas plataformas</p>
+        <div class="flex flex-wrap gap-3">
+            <a href="#" class="border border-[#00C853] text-[#00C853] px-5 py-2 rounded-full text-[13px] font-bold hover:bg-[#00C853] hover:text-[#0A0A0A] transition-colors">DEGIRO →</a>
+            <a href="#" class="border border-[#00C853] text-[#00C853] px-5 py-2 rounded-full text-[13px] font-bold hover:bg-[#00C853] hover:text-[#0A0A0A] transition-colors">Trade Republic →</a>
+            <a href="#" class="border border-[#00C853] text-[#00C853] px-5 py-2 rounded-full text-[13px] font-bold hover:bg-[#00C853] hover:text-[#0A0A0A] transition-colors">MyInvestor →</a>
+        </div>
+    </div>
+</div>
+</section>
+
+<!-- ¿CUÁNDO TIENE SENTIDO? -->
+<section class="py-xl px-margin-mobile md:px-margin-desktop bg-[#0A0A0A] border-b border-[#2A2A2A]">
+<div class="max-w-[1200px] mx-auto">
+    <div class="text-center mb-xl">
+        <span class="text-[#00C853] text-[12px] font-bold tracking-widest uppercase mb-4 block">DIAGNÓSTICO</span>
+        <h2 class="font-headline-md text-headline-md text-[#FFFFFF] mb-4">¿Cuándo tiene sentido y cuándo no?</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="edc-card p-6">
+            <h3 class="text-[12px] font-bold tracking-widest uppercase mb-4" style="color:#00C853">✅ Tiene sentido si</h3>
+            <ul class="flex flex-col gap-4">
+                <li class="flex items-start gap-3 text-[14px] text-[#888888]"><span class="material-symbols-outlined text-[16px]" style="flex-shrink:0;margin-top:2px">check_circle</span>Tienes el 30–35&nbsp;% del precio disponible sin comprometer tu fondo de emergencia</li>
+                <li class="flex items-start gap-3 text-[14px] text-[#888888]"><span class="material-symbols-outlined text-[16px]" style="flex-shrink:0;margin-top:2px">check_circle</span>La rentabilidad neta calculada (con todos los gastos) supera el 4&nbsp;% anual</li>
+                <li class="flex items-start gap-3 text-[14px] text-[#888888]"><span class="material-symbols-outlined text-[16px]" style="flex-shrink:0;margin-top:2px">check_circle</span>Puedes asumir que el dinero está inmovilizado durante 5–10 años</li>
+                <li class="flex items-start gap-3 text-[14px] text-[#888888]"><span class="material-symbols-outlined text-[16px]" style="flex-shrink:0;margin-top:2px">check_circle</span>Es un complemento a fondos indexados, no tu único activo de inversión</li>
+            </ul>
+        </div>
+        <div class="edc-card p-6">
+            <h3 class="text-[12px] font-bold tracking-widest uppercase mb-4" style="color:#888888">❌ No tiene sentido si</h3>
+            <ul class="flex flex-col gap-4">
+                <li class="flex items-start gap-3 text-[14px] text-[#888888]"><span class="material-symbols-outlined text-[16px]" style="flex-shrink:0;margin-top:2px;color:#555555">remove_circle</span>Necesitas hipotecar más del 80&nbsp;% y no tienes reservas de emergencia separadas</li>
+                <li class="flex items-start gap-3 text-[14px] text-[#888888]"><span class="material-symbols-outlined text-[16px]" style="flex-shrink:0;margin-top:2px;color:#555555">remove_circle</span>No has calculado los gastos ocultos ni el impacto del IRPF en la rentabilidad</li>
+                <li class="flex items-start gap-3 text-[14px] text-[#888888]"><span class="material-symbols-outlined text-[16px]" style="flex-shrink:0;margin-top:2px;color:#555555">remove_circle</span>Partes de la idea de que el precio del piso "siempre sube" sin analizar la zona</li>
+                <li class="flex items-start gap-3 text-[14px] text-[#888888]"><span class="material-symbols-outlined text-[16px]" style="flex-shrink:0;margin-top:2px;color:#555555">remove_circle</span>Sacrificarías tu fondo de emergencia o liquidez corriente para poder comprarlo</li>
+            </ul>
+        </div>
+    </div>
+</div>
+</section>
+
+<!-- TABLA COMPARATIVA FINAL -->
+<section class="py-xl px-margin-mobile md:px-margin-desktop bg-[#111111]">
+<div class="max-w-[1200px] mx-auto">
+    <div class="text-center mb-xl">
+        <span class="text-[#00C853] text-[12px] font-bold tracking-widest uppercase mb-4 block">COMPARATIVA</span>
+        <h2 class="font-headline-md text-headline-md text-[#FFFFFF] mb-4">Piso en alquiler vs. REITs vs. Fondos indexados</h2>
+        <p class="font-body-lg text-body-lg text-[#888888] max-w-2xl mx-auto">Cada opción tiene su lugar. Ninguna es universalmente mejor.</p>
+    </div>
+    <div class="overflow-x-auto rounded-xl" style="border:1px solid #2A2A2A">
+        <table class="w-full text-left border-collapse" style="min-width:600px">
+            <thead>
+                <tr style="background:#1A1A1A">
+                    <th class="px-5 py-4 text-[11px] font-bold tracking-widest uppercase" style="color:#555555;width:22%">Criterio</th>
+                    <th class="px-5 py-4 text-[11px] font-bold tracking-widest uppercase" style="color:#888888;width:26%">Piso en alquiler</th>
+                    <th class="px-5 py-4 text-[11px] font-bold tracking-widest uppercase" style="color:#888888;width:26%"><a href="acciones.html" class="hover:text-[#00C853] transition-colors">SOCIMIs / REITs →</a></th>
+                    <th class="px-5 py-4 text-[11px] font-bold tracking-widest uppercase" style="color:#00C853;width:26%"><a href="fondos-indexados.html" class="hover:opacity-80 transition-opacity" style="color:#00C853">Fondos indexados →</a></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="border-top:1px solid #2A2A2A;background:#111111">
+                    <td class="px-5 py-4 text-[14px] text-[#888888]">Inversión mínima</td>
+                    <td class="px-5 py-4 text-[14px] text-[#888888]">100.000&nbsp;€+</td>
+                    <td class="px-5 py-4 text-[14px] font-bold text-white">1&nbsp;€</td>
+                    <td class="px-5 py-4 text-[14px] font-bold text-white">1&nbsp;€</td>
+                </tr>
+                <tr style="border-top:1px solid #2A2A2A;background:#1A1A1A">
+                    <td class="px-5 py-4 text-[14px] text-[#888888]">Liquidez</td>
+                    <td class="px-5 py-4 text-[14px] text-[#888888]">Meses</td>
+                    <td class="px-5 py-4 text-[14px] font-bold text-white">2–3 días</td>
+                    <td class="px-5 py-4 text-[14px] font-bold text-white">2–3 días</td>
+                </tr>
+                <tr style="border-top:1px solid #2A2A2A;background:#111111">
+                    <td class="px-5 py-4 text-[14px] text-[#888888]">Diversificación</td>
+                    <td class="px-5 py-4 text-[14px] text-[#888888]">Concentrada (1 activo)</td>
+                    <td class="px-5 py-4 text-[14px] text-[#888888]">Media</td>
+                    <td class="px-5 py-4 text-[14px] font-bold text-white">Alta (1.400+ empresas)</td>
+                </tr>
+                <tr style="border-top:1px solid #2A2A2A;background:#1A1A1A">
+                    <td class="px-5 py-4 text-[14px] text-[#888888]">Gestión necesaria</td>
+                    <td class="px-5 py-4 text-[14px] text-[#888888]">Alta</td>
+                    <td class="px-5 py-4 text-[14px] font-bold text-white">Mínima</td>
+                    <td class="px-5 py-4 text-[14px] font-bold text-white">Mínima</td>
+                </tr>
+                <tr style="border-top:1px solid #2A2A2A;background:#111111">
+                    <td class="px-5 py-4 text-[14px] text-[#888888]">Rentabilidad neta histórica</td>
+                    <td class="px-5 py-4 text-[14px] text-[#888888]">2–5&nbsp;% anual</td>
+                    <td class="px-5 py-4 text-[14px] text-[#888888]">6–9&nbsp;% anual</td>
+                    <td class="px-5 py-4 text-[14px] font-bold" style="color:#00C853">6–8&nbsp;% anual</td>
+                </tr>
+                <tr style="border-top:1px solid #2A2A2A;background:#1A1A1A">
+                    <td class="px-5 py-4 text-[14px] text-[#888888]">Apalancamiento</td>
+                    <td class="px-5 py-4 text-[14px] text-[#888888]">Posible (hipoteca)</td>
+                    <td class="px-5 py-4 text-[14px] text-[#888888]">No</td>
+                    <td class="px-5 py-4 text-[14px] text-[#888888]">No</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="w-full py-xl border-t border-[#2A2A2A]" style="background:#0A0A0A">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop max-w-[1200px] mx-auto gap-md">
+<a href="../index.html"><img src="/edc-web/logo.png" alt="EDC" style="height:28px"></a>
+<div class="font-label-sm text-label-sm text-tertiary dark:text-tertiary">© 2025 El Dinero Es Claro. Todos los derechos reservados.</div>
+<div class="flex gap-4 items-center">
+  <a href="https://instagram.com/eldineroesclaro" target="_blank" rel="noopener noreferrer" class="text-[#888888] hover:text-[#00C853] transition-colors duration-200" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+  <a href="https://tiktok.com/@eldineroesclaro" target="_blank" rel="noopener noreferrer" class="text-[#888888] hover:text-[#00C853] transition-colors duration-200" aria-label="TikTok"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.27 8.27 0 004.84 1.55V6.79a4.85 4.85 0 01-1.07-.1z"/></svg></a>
+  <a href="https://www.youtube.com/@ElDineroEsClaro" target="_blank" rel="noopener noreferrer" class="text-[#888888] hover:text-[#00C853] transition-colors duration-200" aria-label="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+</div>
+<div class="flex gap-4 font-label-sm text-label-sm">
+<a class="text-tertiary dark:text-tertiary hover:text-primary transition-colors duration-200" href="#privacidad">Privacidad</a>
+<a class="text-tertiary dark:text-tertiary hover:text-primary transition-colors duration-200" href="#terminos">Términos</a>
+<a class="text-tertiary dark:text-tertiary hover:text-primary transition-colors duration-200" href="#descargo">Descargo de Responsabilidad</a>
+</div>
+<p class="w-full text-center text-[11px] text-[#555555] mt-4">Contenido educativo. No es asesoramiento financiero.</p>
+</div>
+</footer>
+
+<!-- Modal: Calculadora de Rentabilidad Inmobiliaria -->
+<div id="modal-ri" role="dialog" aria-modal="true" aria-labelledby="modal-ri-title" class="fixed inset-0 z-[200] items-center justify-center p-4" style="display:none;background:rgba(0,0,0,0.88);backdrop-filter:blur(4px)">
+  <div class="w-full max-w-2xl bg-[#111111] border border-[#2A2A2A] rounded-2xl overflow-y-auto" style="max-height:90vh">
+    <div class="flex items-center justify-between px-6 py-5 border-b border-[#2A2A2A]">
+      <div class="flex items-center gap-3">
+        <span class="material-symbols-outlined" style="color:#00C853">apartment</span>
+        <h2 id="modal-ri-title" class="font-bold text-white" style="font-size:18px">Rentabilidad inmobiliaria</h2>
+      </div>
+      <button onclick="closeModal('modal-ri')" aria-label="Cerrar" class="text-[#888888] hover:text-white transition-colors"><span class="material-symbols-outlined">close</span></button>
+    </div>
+    <div class="px-6 pt-5 grid grid-cols-2 gap-4">
+      <div>
+        <label for="ri-precio" class="block text-[11px] font-bold tracking-widest uppercase mb-2" style="color:#888888">Precio de compra (€)</label>
+        <input id="ri-precio" type="number" value="150000" min="0" class="w-full rounded-lg px-4 py-3 text-white text-[16px]" style="background:#0a0a0a;border:1px solid #2a2a2a;outline:none;transition:border-color 200ms" onfocus="this.style.borderColor='#00C853'" onblur="this.style.borderColor='#2A2A2A'"/>
+      </div>
+      <div>
+        <label for="ri-gastos-compra" class="block text-[11px] font-bold tracking-widest uppercase mb-2" style="color:#888888">Gastos de compra (%)</label>
+        <input id="ri-gastos-compra" type="number" value="10" min="0" max="30" step="0.5" class="w-full rounded-lg px-4 py-3 text-white text-[16px]" style="background:#0a0a0a;border:1px solid #2a2a2a;outline:none;transition:border-color 200ms" onfocus="this.style.borderColor='#00C853'" onblur="this.style.borderColor='#2A2A2A'"/>
+      </div>
+      <div>
+        <label for="ri-alquiler" class="block text-[11px] font-bold tracking-widest uppercase mb-2" style="color:#888888">Alquiler mensual (€)</label>
+        <input id="ri-alquiler" type="number" value="700" min="0" class="w-full rounded-lg px-4 py-3 text-white text-[16px]" style="background:#0a0a0a;border:1px solid #2a2a2a;outline:none;transition:border-color 200ms" onfocus="this.style.borderColor='#00C853'" onblur="this.style.borderColor='#2A2A2A'"/>
+      </div>
+      <div>
+        <label for="ri-gastos-fijos" class="block text-[11px] font-bold tracking-widest uppercase mb-2" style="color:#888888">Gastos anuales fijos (€)</label>
+        <input id="ri-gastos-fijos" type="number" value="3750" min="0" class="w-full rounded-lg px-4 py-3 text-white text-[16px]" style="background:#0a0a0a;border:1px solid #2a2a2a;outline:none;transition:border-color 200ms" onfocus="this.style.borderColor='#00C853'" onblur="this.style.borderColor='#2A2A2A'"/>
+      </div>
+      <div>
+        <label class="block text-[11px] font-bold tracking-widest uppercase mb-2" style="color:#888888">Meses vacíos: <span id="ri-meses-vacios-val" style="color:#FFFFFF">1</span></label>
+        <input id="ri-meses-vacios" type="range" value="1" min="0" max="12" step="1" style="margin-top:10px"/>
+      </div>
+      <div>
+        <label for="ri-irpf" class="block text-[11px] font-bold tracking-widest uppercase mb-2" style="color:#888888">Tipo marginal IRPF (%)</label>
+        <input id="ri-irpf" type="number" value="30" min="19" max="47" step="1" class="w-full rounded-lg px-4 py-3 text-white text-[16px]" style="background:#0a0a0a;border:1px solid #2a2a2a;outline:none;transition:border-color 200ms" onfocus="this.style.borderColor='#00C853'" onblur="this.style.borderColor='#2A2A2A'"/>
+      </div>
+    </div>
+    <div class="px-6 pt-4 pb-2 grid grid-cols-3 gap-3">
+      <div class="rounded-xl p-4" style="background:#0a0a0a;border:1px solid #1a1a1a">
+        <p class="text-[10px] font-bold tracking-widest uppercase mb-2" style="color:#888888">Rent. bruta</p>
+        <p id="ri-out-bruta" class="font-bold text-white" style="font-size:19px;line-height:1">—</p>
+      </div>
+      <div class="rounded-xl p-4" style="background:#0a0a0a;border:1px solid #1a1a1a">
+        <p class="text-[10px] font-bold tracking-widest uppercase mb-2" style="color:#888888">Neta (antes IRPF)</p>
+        <p id="ri-out-neta-ai" class="font-bold text-white" style="font-size:19px;line-height:1">—</p>
+      </div>
+      <div class="rounded-xl p-4" style="background:#0a0a0a;border:1px solid #1a1a1a">
+        <p class="text-[10px] font-bold tracking-widest uppercase mb-2" style="color:#888888">Neta (después IRPF)</p>
+        <p id="ri-out-neta-di" class="font-bold" style="font-size:19px;line-height:1;color:#00C853">—</p>
+      </div>
+    </div>
+    <div class="px-6 pb-4" style="position:relative;height:200px">
+      <canvas id="ri-chart"></canvas>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Calculadora de Hipoteca -->
+<div id="modal-hip" role="dialog" aria-modal="true" aria-labelledby="modal-hip-title" class="fixed inset-0 z-[200] items-center justify-center p-4" style="display:none;background:rgba(0,0,0,0.88);backdrop-filter:blur(4px)">
+  <div class="w-full max-w-2xl bg-[#111111] border border-[#2A2A2A] rounded-2xl overflow-y-auto" style="max-height:90vh">
+    <div class="flex items-center justify-between px-6 py-5 border-b border-[#2A2A2A]">
+      <div class="flex items-center gap-3">
+        <span class="material-symbols-outlined" style="color:#00C853">account_balance</span>
+        <h2 id="modal-hip-title" class="font-bold text-white" style="font-size:18px">Calculadora de hipoteca</h2>
+      </div>
+      <button onclick="closeModal('modal-hip')" aria-label="Cerrar" class="text-[#888888] hover:text-white transition-colors"><span class="material-symbols-outlined">close</span></button>
+    </div>
+    <div class="px-6 pt-5 grid grid-cols-2 gap-4">
+      <div>
+        <label for="hip-precio" class="block text-[11px] font-bold tracking-widest uppercase mb-2" style="color:#888888">Precio del inmueble (€)</label>
+        <input id="hip-precio" type="number" value="150000" min="0" class="w-full rounded-lg px-4 py-3 text-white text-[16px]" style="background:#0a0a0a;border:1px solid #2a2a2a;outline:none;transition:border-color 200ms" onfocus="this.style.borderColor='#00C853'" onblur="this.style.borderColor='#2A2A2A'"/>
+      </div>
+      <div>
+        <label for="hip-entrada" class="block text-[11px] font-bold tracking-widest uppercase mb-2" style="color:#888888">Entrada (€) — <span id="hip-entrada-pct" style="color:#00C853">20,0%</span></label>
+        <input id="hip-entrada" type="number" value="30000" min="0" class="w-full rounded-lg px-4 py-3 text-white text-[16px]" style="background:#0a0a0a;border:1px solid #2a2a2a;outline:none;transition:border-color 200ms" onfocus="this.style.borderColor='#00C853'" onblur="this.style.borderColor='#2A2A2A'"/>
+      </div>
+      <div>
+        <label class="block text-[11px] font-bold tracking-widest uppercase mb-2" style="color:#888888">Plazo: <span id="hip-plazo-val" style="color:#FFFFFF">25 años</span></label>
+        <input id="hip-plazo" type="range" value="25" min="10" max="30" step="1" style="margin-top:10px"/>
+      </div>
+      <div>
+        <label for="hip-tipo" class="block text-[11px] font-bold tracking-widest uppercase mb-2" style="color:#888888">Tipo de interés anual (%)</label>
+        <input id="hip-tipo" type="number" value="3.5" min="0.1" max="15" step="0.1" class="w-full rounded-lg px-4 py-3 text-white text-[16px]" style="background:#0a0a0a;border:1px solid #2a2a2a;outline:none;transition:border-color 200ms" onfocus="this.style.borderColor='#00C853'" onblur="this.style.borderColor='#2A2A2A'"/>
+      </div>
+      <div>
+        <label for="hip-ingresos" class="block text-[11px] font-bold tracking-widest uppercase mb-2" style="color:#888888">Ingresos netos mensuales (€) <span style="color:#555555">opcional</span></label>
+        <input id="hip-ingresos" type="number" value="" min="0" placeholder="0" class="w-full rounded-lg px-4 py-3 text-white text-[16px]" style="background:#0a0a0a;border:1px solid #2a2a2a;outline:none;transition:border-color 200ms" onfocus="this.style.borderColor='#00C853'" onblur="this.style.borderColor='#2A2A2A'"/>
+      </div>
+      <div class="flex items-end pb-1">
+        <div class="flex gap-0 rounded-lg overflow-hidden w-full" style="border:1px solid #2A2A2A">
+          <button id="hip-btn-fija" onclick="setHipTipo('fija')" class="flex-1 px-4 py-3 text-[12px] font-bold transition-colors" style="background:#00C853;color:#0A0A0A">Fija</button>
+          <button id="hip-btn-variable" onclick="setHipTipo('variable')" class="flex-1 px-4 py-3 text-[12px] font-bold transition-colors text-[#888888]" style="background:transparent">Variable</button>
+        </div>
+      </div>
+    </div>
+    <div id="hip-warning" class="mx-6 mt-3 rounded-lg px-4 py-3 flex items-center gap-2" style="display:none!important;background:rgba(255,215,64,0.1);border:1px solid rgba(255,215,64,0.3)">
+      <span class="material-symbols-outlined text-[18px]" style="color:#FFD740;flex-shrink:0">warning</span>
+      <p class="text-[13px]" style="color:#FFD740">La cuota supera el 30&nbsp;% de tus ingresos mensuales.</p>
+    </div>
+    <div class="px-6 pt-4 pb-2 grid grid-cols-3 gap-3">
+      <div class="rounded-xl p-4 col-span-1" style="background:#0a0a0a;border:1px solid rgba(0,200,83,0.3)">
+        <p class="text-[10px] font-bold tracking-widest uppercase mb-2" style="color:#888888">Cuota mensual</p>
+        <p id="hip-cuota" class="font-bold" style="font-size:19px;line-height:1;color:#00C853">—</p>
+      </div>
+      <div class="rounded-xl p-4" style="background:#0a0a0a;border:1px solid #1a1a1a">
+        <p class="text-[10px] font-bold tracking-widest uppercase mb-2" style="color:#888888">Total pagado</p>
+        <p id="hip-total" class="font-bold text-white" style="font-size:19px;line-height:1">—</p>
+      </div>
+      <div class="rounded-xl p-4" style="background:#0a0a0a;border:1px solid #1a1a1a">
+        <p class="text-[10px] font-bold tracking-widest uppercase mb-2" style="color:#888888">Total intereses</p>
+        <p id="hip-intereses" class="font-bold" style="font-size:19px;line-height:1;color:#FF5252">—</p>
+      </div>
+    </div>
+    <div class="px-6 pb-4" style="position:relative;height:220px">
+      <canvas id="hip-chart"></canvas>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+<script>
+(function() {
+  function openModal(id) {
+    document.getElementById(id).style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    var inp = document.getElementById(id).querySelector('input');
+    if (inp) inp.focus();
+  }
+  function closeModal(id) {
+    document.getElementById(id).style.display = 'none';
+    document.body.style.overflow = '';
+  }
+  window.closeModal = closeModal;
+
+  // ── Calculadora rentabilidad ──────────────────────────────────────────
+  var riChart = null;
+  function fmtPct(n) { return n.toFixed(2) + '%'; }
+
+  function calcRI() {
+    var precio       = Math.max(0, parseFloat(document.getElementById('ri-precio').value) || 0);
+    var gCompra      = Math.min(30, Math.max(0, parseFloat(document.getElementById('ri-gastos-compra').value) || 10));
+    var alqMes       = Math.max(0, parseFloat(document.getElementById('ri-alquiler').value) || 0);
+    var gFijos       = Math.max(0, parseFloat(document.getElementById('ri-gastos-fijos').value) || 0);
+    var mVacios      = Math.min(12, Math.max(0, parseInt(document.getElementById('ri-meses-vacios').value) || 0));
+    var irpf         = Math.min(60, Math.max(0, parseFloat(document.getElementById('ri-irpf').value) || 30));
+    document.getElementById('ri-meses-vacios-val').textContent = mVacios;
+
+    var costTotal    = precio * (1 + gCompra / 100);
+    var ingBruto     = alqMes * 12;
+    var ingEfectivo  = alqMes * (12 - mVacios);
+    var rendNeto     = ingEfectivo - gFijos;
+
+    var rentBruta    = precio > 0 ? ingBruto / precio * 100 : 0;
+    var rentNetaAI   = costTotal > 0 ? rendNeto / costTotal * 100 : 0;
+    var baseIRPF     = Math.max(0, rendNeto) * 0.40;
+    var impuesto     = baseIRPF * irpf / 100;
+    var rentNetaDI   = costTotal > 0 ? (rendNeto - impuesto) / costTotal * 100 : 0;
+
+    document.getElementById('ri-out-bruta').textContent    = fmtPct(rentBruta);
+    document.getElementById('ri-out-neta-ai').textContent  = fmtPct(rentNetaAI);
+    var elDI = document.getElementById('ri-out-neta-di');
+    elDI.textContent = fmtPct(rentNetaDI);
+    elDI.style.color = rentNetaDI >= 4 ? '#00C853' : (rentNetaDI >= 2 ? '#FFD740' : '#FF5252');
+
+    var val      = Math.max(0, parseFloat(rentNetaDI.toFixed(2)));
+    var barColor = val >= 4 ? '#00C853' : (val >= 2 ? '#FFD740' : '#FF5252');
+    var chartData   = [2.5, 7, val];
+    var chartColors = ['#3A3A3A', '#555555', barColor];
+
+    if (riChart) {
+      riChart.data.datasets[0].data = chartData;
+      riChart.data.datasets[0].backgroundColor = chartColors;
+      riChart.update();
+    } else {
+      riChart = new Chart(document.getElementById('ri-chart').getContext('2d'), {
+        type: 'bar',
+        data: {
+          labels: ['Cuenta remunerada', 'Fondo indexado', 'Tu inmueble'],
+          datasets: [{ data: chartData, backgroundColor: chartColors, borderRadius: 4, barThickness: 22 }]
+        },
+        options: {
+          indexAxis: 'y',
+          responsive: true,
+          maintainAspectRatio: false,
+          animation: { duration: 200 },
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              backgroundColor: '#1A1A1A', borderColor: '#2A2A2A', borderWidth: 1,
+              titleColor: '#FFFFFF', bodyColor: '#888888',
+              callbacks: { label: function(c) { return ' ' + c.raw.toFixed(2) + '%'; } }
+            }
+          },
+          scales: {
+            x: { ticks: { color: '#888888', font: { size: 10 }, callback: function(v) { return v + '%'; } }, grid: { color: '#1A1A1A' } },
+            y: { ticks: { color: '#888888', font: { size: 11 } }, grid: { display: false } }
+          }
+        }
+      });
+    }
+  }
+
+  window.openRentabilidadCalculator = function() { openModal('modal-ri'); requestAnimationFrame(calcRI); };
+  ['ri-precio','ri-gastos-compra','ri-alquiler','ri-gastos-fijos','ri-irpf'].forEach(function(id) {
+    document.getElementById(id).addEventListener('input', calcRI);
+  });
+  document.getElementById('ri-meses-vacios').addEventListener('input', calcRI);
+  document.getElementById('modal-ri').addEventListener('click', function(e) { if (e.target === this) closeModal('modal-ri'); });
+
+  // ── Calculadora hipoteca ──────────────────────────────────────────────
+  var hipChart = null;
+  function fmt(n) { return new Intl.NumberFormat('es-ES',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(n); }
+
+  function calcHip() {
+    var precio   = Math.max(0, parseFloat(document.getElementById('hip-precio').value) || 0);
+    var entrada  = Math.max(0, parseFloat(document.getElementById('hip-entrada').value) || 0);
+    var plazo    = Math.min(30, Math.max(10, parseInt(document.getElementById('hip-plazo').value) || 25));
+    var tipo     = Math.max(0.1, parseFloat(document.getElementById('hip-tipo').value) || 3.5);
+    var ingresos = Math.max(0, parseFloat(document.getElementById('hip-ingresos').value) || 0);
+
+    document.getElementById('hip-plazo-val').textContent = plazo + ' años';
+    var pct = precio > 0 ? ((entrada / precio) * 100).toFixed(1) : '0.0';
+    document.getElementById('hip-entrada-pct').textContent = pct + '%';
+
+    var principal = Math.max(0, precio - entrada);
+    var r = tipo / 100 / 12;
+    var n = plazo * 12;
+    var cuota = (r > 0 && principal > 0) ? principal * r * Math.pow(1+r,n) / (Math.pow(1+r,n)-1) : principal / (n || 1);
+    var totalPagado = cuota * n;
+    var totalIntereses = totalPagado - principal;
+
+    document.getElementById('hip-cuota').textContent     = fmt(cuota);
+    document.getElementById('hip-total').textContent     = fmt(totalPagado);
+    document.getElementById('hip-intereses').textContent = fmt(Math.max(0, totalIntereses));
+
+    var warning = document.getElementById('hip-warning');
+    warning.style.display = (ingresos > 0 && cuota > ingresos * 0.30) ? 'flex' : 'none';
+
+    var labels = [], dCap = [], dInt = [], saldo = principal;
+    for (var y = 1; y <= Math.min(plazo, 30); y++) {
+      var cAnio = 0, iAnio = 0;
+      for (var m = 0; m < 12; m++) {
+        if (saldo <= 0.01) break;
+        var iMes = saldo * r;
+        var cMes = Math.min(cuota - iMes, saldo);
+        iAnio += iMes; cAnio += cMes; saldo -= cMes;
+      }
+      labels.push('A' + y);
+      dCap.push(Math.round(Math.max(0, cAnio)));
+      dInt.push(Math.round(Math.max(0, iAnio)));
+    }
+
+    if (hipChart) {
+      hipChart.data.labels = labels;
+      hipChart.data.datasets[0].data = dCap;
+      hipChart.data.datasets[1].data = dInt;
+      hipChart.update();
+    } else {
+      hipChart = new Chart(document.getElementById('hip-chart').getContext('2d'), {
+        type: 'bar',
+        data: {
+          labels: labels,
+          datasets: [
+            { label: 'Capital', data: dCap, backgroundColor: '#2A2A2A', borderRadius: 2, stack: 'a' },
+            { label: 'Intereses', data: dInt, backgroundColor: '#FF5252', borderRadius: 2, stack: 'a' }
+          ]
+        },
+        options: {
+          responsive: true, maintainAspectRatio: false, animation: { duration: 200 },
+          interaction: { mode: 'index', intersect: false },
+          plugins: {
+            legend: { labels: { color: '#888888', font: { size: 11 } } },
+            tooltip: {
+              backgroundColor: '#1A1A1A', borderColor: '#2A2A2A', borderWidth: 1,
+              titleColor: '#FFFFFF', bodyColor: '#888888',
+              callbacks: { label: function(c) { return ' ' + c.dataset.label + ': ' + fmt(c.raw); } }
+            }
+          },
+          scales: {
+            x: { stacked: true, ticks: { color: '#888888', font: { size: 10 }, maxTicksLimit: 10, maxRotation: 0 }, grid: { color: '#1A1A1A' } },
+            y: { stacked: true, ticks: { color: '#888888', font: { size: 10 }, callback: function(v) { return v>=1000?(v/1000).toFixed(0)+'k€':v+'€'; } }, grid: { color: '#1A1A1A' } }
+          }
+        }
+      });
+    }
+  }
+
+  window.openHipotecaCalculator = function() { openModal('modal-hip'); requestAnimationFrame(calcHip); };
+  window.setHipTipo = function(tipo) {
+    var fija = document.getElementById('hip-btn-fija');
+    var variable = document.getElementById('hip-btn-variable');
+    if (tipo === 'fija') {
+      fija.style.background='#00C853'; fija.style.color='#0A0A0A';
+      variable.style.background='transparent'; variable.style.color='#888888';
+    } else {
+      variable.style.background='#FFD740'; variable.style.color='#0A0A0A';
+      fija.style.background='transparent'; fija.style.color='#888888';
+    }
+  };
+  ['hip-precio','hip-entrada','hip-tipo','hip-ingresos'].forEach(function(id) {
+    document.getElementById(id).addEventListener('input', calcHip);
+  });
+  document.getElementById('hip-plazo').addEventListener('input', calcHip);
+  document.getElementById('modal-hip').addEventListener('click', function(e) { if (e.target === this) closeModal('modal-hip'); });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') { closeModal('modal-ri'); closeModal('modal-hip'); }
+  });
+})();
+</script>
+
+</body>
+</html>
